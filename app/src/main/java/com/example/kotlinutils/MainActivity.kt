@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.kotlinutils.countdowntime.CountdowntimeActivity
 import com.example.kotlinutils.databinding.ActivityMainBinding
+import com.example.kotlinutils.flowandlivedata.FlowLiveDataActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +22,9 @@ class MainActivity : AppCompatActivity() {
     fun listeners(){
         binding.btCountdowntime.setOnClickListener {
             startActivity(Intent(this@MainActivity,CountdowntimeActivity::class.java))
+        }
+        binding.btFlowlivedata.setOnClickListener {
+            startActivity(Intent(this@MainActivity,FlowLiveDataActivity::class.java))
         }
     }
 }

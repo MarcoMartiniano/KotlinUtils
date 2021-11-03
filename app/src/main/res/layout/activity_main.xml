@@ -19,7 +19,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/bt_countdowntime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,5 +29,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="30dp"
         />
+
+    <Button
+        android:id="@+id/bt_flowlivedata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Flows and LiveData"
+        app:layout_constraintTop_toBottomOf="@id/bt_countdowntime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
