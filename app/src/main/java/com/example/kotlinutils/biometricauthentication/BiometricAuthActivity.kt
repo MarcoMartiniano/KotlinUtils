@@ -1,8 +1,10 @@
 package com.example.kotlinutils.biometricauthentication
 
+import android.content.Context
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.lifecycleScope
 import com.example.kotlinutils.databinding.ActivityBiometricAuthBinding
@@ -64,10 +66,33 @@ class BiometricAuthActivity : AppCompatActivity() {
                 }
             }
         }
+        lifecycleScope.launchWhenStarted {
+            viewModel.sharedflowbiometricHardwareVerificationState.collectLatest {
+                when (it){
+                    is HardwareVerificationState.Success -> {
+                        showHardwareAuth(applicationContext, "Your phone has Biometric")
+                    }
+                    is HardwareVerificationState.Biometric_Error_No_Hardware -> {
+                        showHardwareAuth(applicationContext, "You don´t have Biometric on your phone.")
+                    }
+                    is HardwareVerificationState.Biometric_Error_HW_Unavailable -> {
+                        showHardwareAuth(applicationContext, "The Biometric in your phone is unavailable")
+                    }
+                    is HardwareVerificationState.Biometric_Error_None_Enrolled   -> {
+                        showHardwareAuth(applicationContext, "You have to configure your Biomtric")
+                    }
+                }
+            }
+        }
     }
+
 
     private fun setAuthStatus (string: String){
         binding.tvBiometricAuthenticationStatus.text = string
+    }
+
+    private fun showHardwareAuth(context: Context, message: String) {
+        Toast.makeText(context,message,Toast.LENGTH_LONG).show()
     }
 
 }

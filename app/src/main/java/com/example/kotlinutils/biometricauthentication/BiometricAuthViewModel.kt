@@ -38,6 +38,9 @@ class BiometricAuthViewModel : ViewModel() {
     private val _sharedflowbiometricAuthenticationState = MutableSharedFlow<BiometricAuthenticationState>()
     val sharedflowbiometricAuthenticationState = _sharedflowbiometricAuthenticationState.asSharedFlow()
 
+    private val _sharedflowbiometricHardwareVerificationState = MutableSharedFlow<HardwareVerificationState>()
+    val sharedflowbiometricHardwareVerificationState = _sharedflowbiometricHardwareVerificationState.asSharedFlow()
+
 
 
     //LIVEDATA is deprecated but still can be used for simple purpose or for beginners
@@ -79,17 +82,17 @@ class BiometricAuthViewModel : ViewModel() {
 
             override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
                 super.onAuthenticationError(errorCode, errString)
-                emitDataFlow(BiometricAuthenticationState.Error(errorCode,errString))
+                emitBiometricDataFlow(BiometricAuthenticationState.Error(errorCode,errString))
             }
 
             override fun onAuthenticationFailed() {
                 super.onAuthenticationFailed()
-                emitDataFlow(BiometricAuthenticationState.Failed)
+                emitBiometricDataFlow(BiometricAuthenticationState.Failed)
             }
 
             override fun onAuthenticationSucceeded(result: AuthenticationResult) {
                 super.onAuthenticationSucceeded(result)
-                emitDataFlow(BiometricAuthenticationState.Succeeded(result))
+                emitBiometricDataFlow(BiometricAuthenticationState.Succeeded(result))
             }
 
         })
@@ -104,11 +107,18 @@ class BiometricAuthViewModel : ViewModel() {
 
 
 
-    private fun emitDataFlow(biometricAuthenticationState: BiometricAuthenticationState){
+    private fun emitBiometricDataFlow(biometricAuthenticationState: BiometricAuthenticationState){
         viewModelScope.launch {
             _sharedflowbiometricAuthenticationState.emit(biometricAuthenticationState)
         }
     }
+
+    private fun emitHardwareVerificationDataFlow(hardwareVerificationState: HardwareVerificationState){
+        viewModelScope.launch {
+            _sharedflowbiometricHardwareVerificationState.emit(hardwareVerificationState)
+        }
+    }
+
 
     @RequiresApi(Build.VERSION_CODES.R)
     fun hardwareVerification (context: Context, activity: Activity) : Boolean{
@@ -116,18 +126,22 @@ class BiometricAuthViewModel : ViewModel() {
         when (biometricManager.canAuthenticate(BIOMETRIC_STRONG or DEVICE_CREDENTIAL)) {
             BiometricManager.BIOMETRIC_SUCCESS ->{
                 Log.d("MY_APP_TAG", "App can authenticate using biometrics.")
+                emitHardwareVerificationDataFlow(HardwareVerificationState.Success)
                return true
             }
             BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE ->{
                 Log.e("MY_APP_TAG", "No biometric features available on this device.")
+                emitHardwareVerificationDataFlow(HardwareVerificationState.Biometric_Error_No_Hardware)
                 return false
             }
             BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE ->{
                 Log.e("MY_APP_TAG", "Biometric features are currently unavailable.")
+                emitHardwareVerificationDataFlow(HardwareVerificationState.Biometric_Error_HW_Unavailable)
                 return false
             }
             BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
                 // Prompts the user to create credentials that your app accepts.
+                emitHardwareVerificationDataFlow(HardwareVerificationState.Biometric_Error_None_Enrolled)
                 val enrollIntent = Intent(Settings.ACTION_BIOMETRIC_ENROLL).apply {
                     putExtra(Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
                         BIOMETRIC_STRONG or DEVICE_CREDENTIAL)
@@ -139,6 +153,13 @@ class BiometricAuthViewModel : ViewModel() {
         return false
     }
 
+}
+
+sealed class HardwareVerificationState {
+    object Success : HardwareVerificationState()
+    object Biometric_Error_No_Hardware : HardwareVerificationState()
+    object Biometric_Error_HW_Unavailable : HardwareVerificationState()
+    object Biometric_Error_None_Enrolled : HardwareVerificationState()
 }
 
 sealed class BiometricAuthenticationState {
