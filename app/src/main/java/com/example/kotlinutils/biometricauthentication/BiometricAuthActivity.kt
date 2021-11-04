@@ -2,7 +2,9 @@ package com.example.kotlinutils.biometricauthentication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.lifecycleScope
 import com.example.kotlinutils.databinding.ActivityBiometricAuthBinding
+import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BiometricAuthActivity : AppCompatActivity() {
@@ -16,12 +18,12 @@ class BiometricAuthActivity : AppCompatActivity() {
 
         listeners()
         observers()
-
     }
 
     private fun listeners(){
         binding.btBiometricAuthentication.setOnClickListener {
-            viewModel.createPromptInfo(this,this@BiometricAuthActivity)
+           // viewModel.createPromptInfoWithLiveData(this,this@BiometricAuthActivity)
+            viewModel.createPromptInfoWithFlow(this,this@BiometricAuthActivity)
         }
     }
 
@@ -33,14 +35,31 @@ class BiometricAuthActivity : AppCompatActivity() {
                 }
                 is BiometricAuthenticationState.Succeeded -> {
                     setAuthStatus("Authentication Succeeded ${it.result}")
-
                 }
                 is BiometricAuthenticationState.Error -> {
                     setAuthStatus("Authentication Error: ${it.errString} ${it.errorCode}")
-
                 }
             }
         }
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.sharedflowbiometricAuthenticationState.collectLatest {
+                when (it){
+                    is BiometricAuthenticationState.Failed -> {
+                        setAuthStatus("Authentication Failed")
+                    }
+                    is BiometricAuthenticationState.Succeeded -> {
+                        setAuthStatus("Authentication Succeeded ${it.result}")
+                    }
+                    is BiometricAuthenticationState.Error -> {
+                        setAuthStatus("Authentication Error: ${it.errString} ${it.errorCode}")
+                    }
+                }
+            }
+        }
+
+
+
     }
 
     private fun setAuthStatus (string: String){

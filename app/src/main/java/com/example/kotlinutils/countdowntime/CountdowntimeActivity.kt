@@ -32,7 +32,6 @@ class CountdowntimeActivity : AppCompatActivity() {
             countDownTimer?.cancel()
             binding.tvCountdowtime.text = "$counter - Canceled"
         }
-
     }
 
     private fun createCountdownTimer() : CountDownTimer{
@@ -42,7 +41,6 @@ class CountdowntimeActivity : AppCompatActivity() {
             override fun onTick(millisUntilFinished: Long) {
                 binding.tvCountdowtime.text = "$counter - Tick"
                 counter--
-
             }
 
             override fun onFinish() {

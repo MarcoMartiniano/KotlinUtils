@@ -1,6 +1,6 @@
 package com.example.kotlinutils.biometricauthentication
 
-import com.example.kotlinutils.flowandlivedata.FlowLiveDataViewModel
+
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module

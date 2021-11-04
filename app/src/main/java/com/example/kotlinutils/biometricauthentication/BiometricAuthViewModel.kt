@@ -10,6 +10,10 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.launch
 import java.util.concurrent.Executor
 
 class BiometricAuthViewModel : ViewModel() {
@@ -21,8 +25,14 @@ class BiometricAuthViewModel : ViewModel() {
     private val _biometricAuthenticationState = MutableLiveData<BiometricAuthenticationState>()
     val biometricAuthenticationState: LiveData<BiometricAuthenticationState> = _biometricAuthenticationState
 
+    private val _sharedflowbiometricAuthenticationState = MutableSharedFlow<BiometricAuthenticationState>()
+    val sharedflowbiometricAuthenticationState = _sharedflowbiometricAuthenticationState.asSharedFlow()
 
-    fun createPromptInfo(context: Context, activity: FragmentActivity) {
+
+
+    //LIVEDATA is deprecated but still can be used for simple purpose or for beginners
+
+    fun createPromptInfoWithLiveData(context: Context, activity: FragmentActivity) {
         executor = ContextCompat.getMainExecutor(context)
         biometricPrompt = BiometricPrompt(activity,executor, object : AuthenticationCallback(){
 
@@ -50,6 +60,46 @@ class BiometricAuthViewModel : ViewModel() {
             .build()
         biometricPrompt.authenticate(promptInfo)
     }
+
+    
+
+    fun createPromptInfoWithFlow(context: Context, activity: FragmentActivity) {
+        executor = ContextCompat.getMainExecutor(context)
+        biometricPrompt = BiometricPrompt(activity,executor, object : AuthenticationCallback(){
+
+            override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
+                super.onAuthenticationError(errorCode, errString)
+                emitDataFlow(BiometricAuthenticationState.Error(errorCode,errString))
+            }
+
+            override fun onAuthenticationFailed() {
+                super.onAuthenticationFailed()
+                emitDataFlow(BiometricAuthenticationState.Failed)
+            }
+
+            override fun onAuthenticationSucceeded(result: AuthenticationResult) {
+                super.onAuthenticationSucceeded(result)
+                emitDataFlow(BiometricAuthenticationState.Succeeded(result))
+            }
+
+        })
+
+        promptInfo = PromptInfo.Builder()
+            .setTitle("Biometric Authentication")
+            .setSubtitle("Login using fingerprint or face")
+            .setNegativeButtonText("Cancel")
+            .build()
+        biometricPrompt.authenticate(promptInfo)
+    }
+
+
+
+    private fun emitDataFlow(biometricAuthenticationState: BiometricAuthenticationState){
+        viewModelScope.launch {
+            _sharedflowbiometricAuthenticationState.emit(biometricAuthenticationState)
+        }
+    }
+
 }
 
 sealed class BiometricAuthenticationState {
