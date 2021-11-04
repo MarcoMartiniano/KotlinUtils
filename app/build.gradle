@@ -62,4 +62,7 @@ dependencies {
     implementation "io.insert-koin:koin-android:3.1.2"
     implementation "io.insert-koin:koin-android-ext:3.0.1"
 
+    //Biometric
+    implementation "androidx.biometric:biometric:1.1.0"
+
 }

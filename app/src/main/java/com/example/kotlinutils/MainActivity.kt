@@ -3,6 +3,7 @@ package com.example.kotlinutils
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.kotlinutils.biometricauthentication.BiometricAuthActivity
 import com.example.kotlinutils.countdowntime.CountdowntimeActivity
 import com.example.kotlinutils.databinding.ActivityMainBinding
 import com.example.kotlinutils.flowandlivedata.FlowLiveDataActivity
@@ -26,5 +27,10 @@ class MainActivity : AppCompatActivity() {
         binding.btFlowlivedata.setOnClickListener {
             startActivity(Intent(this@MainActivity,FlowLiveDataActivity::class.java))
         }
+        binding.btBiometricauth.setOnClickListener {
+            startActivity(Intent(this@MainActivity,BiometricAuthActivity::class.java))
+        }
     }
+
+
 }

@@ -56,7 +56,7 @@ class FlowLiveDataActivity : AppCompatActivity() {
 
         // LIVEDATA
         //Became obsolete
-        //If your are using Fragments you change this for viewLifecycleOwner
+        //If your are using Fragments you change 'this' by viewLifecycleOwner
         //When you rotate the screen it will not be lost
         viewModel.liveData.observe(this){
             binding.tvLivedata.text = it;
@@ -65,7 +65,7 @@ class FlowLiveDataActivity : AppCompatActivity() {
         // STATEFLOW
         //When you rotate the screen it will not be lost
         //If you show a snack bar using stateFlow, everytime you rotate the screen this will be shown,
-        //and when you start the Activity will show it with the initial value
+        //and when you start the Activity it will show it with the initial value
         lifecycleScope.launchWhenStarted {
             viewModel.stateFlow.collectLatest {
                 binding.tvStateflow.text = it
@@ -78,6 +78,9 @@ class FlowLiveDataActivity : AppCompatActivity() {
         }
 
         // SHAREDFLOW
+        // Commonly used to show one-time event, you can call many times you want.
+        // Different from STATEFLOW, the initial value will NOT be shown and everytime you rotate the
+        // screen it NOT will me shown either.
         lifecycleScope.launchWhenStarted {
             viewModel.sharedFlow.collectLatest {
                 Snackbar.make(

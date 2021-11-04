@@ -2,5 +2,8 @@
 Project to implement Kotlin utilities divided by folder
 
 
-[x] CountdownTimer
-[x] LiveData, StateFlow, Flow, SharedFLow
+## Utilility List
+
+ - [x] CountdownTimer
+ - [x] LiveData, StateFlow, Flow, SharedFLow
+ - [x] Biometric Finger Authentication

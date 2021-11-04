@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinUtils">
         <activity
+            android:name=".biometricauthentication.BiometricAuthActivity"
+            android:exported="false" />
+        <activity
             android:name=".flowandlivedata.FlowLiveDataActivity"
             android:exported="false" />
         <activity
