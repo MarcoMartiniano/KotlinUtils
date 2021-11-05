@@ -1,12 +1,14 @@
 package com.example.kotlinutils
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.kotlinutils.biometricauthentication.BiometricAuthActivity
 import com.example.kotlinutils.countdowntime.CountdowntimeActivity
 import com.example.kotlinutils.databinding.ActivityMainBinding
 import com.example.kotlinutils.flowandlivedata.FlowLiveDataActivity
+import com.example.kotlinutils.whatzup.WhatzupActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,7 +32,8 @@ class MainActivity : AppCompatActivity() {
         binding.btBiometricauth.setOnClickListener {
             startActivity(Intent(this@MainActivity,BiometricAuthActivity::class.java))
         }
+        binding.btWhatzup.setOnClickListener {
+            startActivity(Intent(this@MainActivity,WhatzupActivity::class.java))
+        }
     }
-
-
 }

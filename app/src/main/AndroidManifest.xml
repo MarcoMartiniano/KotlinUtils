@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinUtils">
         <activity
+            android:name=".whatzup.WhatzupActivity"
+            android:exported="false" />
+        <activity
             android:name=".biometricauthentication.BiometricAuthActivity"
             android:exported="false" />
         <activity
