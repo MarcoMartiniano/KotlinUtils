@@ -131,17 +131,17 @@ class BiometricAuthViewModel : ViewModel() {
             }
             BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE ->{
                 Log.e("MY_APP_TAG", "No biometric features available on this device.")
-                emitHardwareVerificationDataFlow(HardwareVerificationState.Biometric_Error_No_Hardware)
+                emitHardwareVerificationDataFlow(HardwareVerificationState.Error_No_Hardware)
                 return false
             }
             BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE ->{
                 Log.e("MY_APP_TAG", "Biometric features are currently unavailable.")
-                emitHardwareVerificationDataFlow(HardwareVerificationState.Biometric_Error_HW_Unavailable)
+                emitHardwareVerificationDataFlow(HardwareVerificationState.Error_HW_Unavailable)
                 return false
             }
             BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
                 // Prompts the user to create credentials that your app accepts.
-                emitHardwareVerificationDataFlow(HardwareVerificationState.Biometric_Error_None_Enrolled)
+                emitHardwareVerificationDataFlow(HardwareVerificationState.Error_None_Enrolled)
                 val enrollIntent = Intent(Settings.ACTION_BIOMETRIC_ENROLL).apply {
                     putExtra(Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
                         BIOMETRIC_STRONG or DEVICE_CREDENTIAL)
@@ -157,9 +157,9 @@ class BiometricAuthViewModel : ViewModel() {
 
 sealed class HardwareVerificationState {
     object Success : HardwareVerificationState()
-    object Biometric_Error_No_Hardware : HardwareVerificationState()
-    object Biometric_Error_HW_Unavailable : HardwareVerificationState()
-    object Biometric_Error_None_Enrolled : HardwareVerificationState()
+    object Error_No_Hardware : HardwareVerificationState()
+    object Error_HW_Unavailable : HardwareVerificationState()
+    object Error_None_Enrolled : HardwareVerificationState()
 }
 
 sealed class BiometricAuthenticationState {

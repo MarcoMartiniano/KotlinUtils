@@ -70,16 +70,16 @@ class BiometricAuthActivity : AppCompatActivity() {
             viewModel.sharedflowbiometricHardwareVerificationState.collectLatest {
                 when (it){
                     is HardwareVerificationState.Success -> {
-                        showHardwareAuth(applicationContext, "Your phone has Biometric")
+                        showHardwareVerification(applicationContext, "Your phone has Biometric")
                     }
-                    is HardwareVerificationState.Biometric_Error_No_Hardware -> {
-                        showHardwareAuth(applicationContext, "You don´t have Biometric on your phone.")
+                    is HardwareVerificationState.Error_No_Hardware -> {
+                        showHardwareVerification(applicationContext, "You don´t have Biometric on your phone.")
                     }
-                    is HardwareVerificationState.Biometric_Error_HW_Unavailable -> {
-                        showHardwareAuth(applicationContext, "The Biometric in your phone is unavailable")
+                    is HardwareVerificationState.Error_HW_Unavailable -> {
+                        showHardwareVerification(applicationContext, "The Biometric in your phone is unavailable")
                     }
-                    is HardwareVerificationState.Biometric_Error_None_Enrolled   -> {
-                        showHardwareAuth(applicationContext, "You have to configure your Biomtric")
+                    is HardwareVerificationState.Error_None_Enrolled   -> {
+                        showHardwareVerification(applicationContext, "You have to configure your Biometric")
                     }
                 }
             }
@@ -91,7 +91,7 @@ class BiometricAuthActivity : AppCompatActivity() {
         binding.tvBiometricAuthenticationStatus.text = string
     }
 
-    private fun showHardwareAuth(context: Context, message: String) {
+    private fun showHardwareVerification(context: Context, message: String) {
         Toast.makeText(context,message,Toast.LENGTH_LONG).show()
     }
 

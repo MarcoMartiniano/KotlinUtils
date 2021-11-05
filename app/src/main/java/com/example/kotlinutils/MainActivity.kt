@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun listeners(){
+    private fun listeners(){
         binding.btCountdowntime.setOnClickListener {
             startActivity(Intent(this@MainActivity,CountdowntimeActivity::class.java))
         }
