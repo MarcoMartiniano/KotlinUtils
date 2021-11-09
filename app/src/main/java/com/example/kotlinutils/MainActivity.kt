@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.kotlinutils.biometricauthentication.BiometricAuthActivity
 import com.example.kotlinutils.countdowntime.CountdowntimeActivity
+import com.example.kotlinutils.cryptography.CryptographyActivity
 import com.example.kotlinutils.databinding.ActivityMainBinding
 import com.example.kotlinutils.flowandlivedata.FlowLiveDataActivity
 import com.example.kotlinutils.whatzup.WhatzupActivity
@@ -34,6 +35,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btWhatzup.setOnClickListener {
             startActivity(Intent(this@MainActivity,WhatzupActivity::class.java))
+        }
+        binding.btCryptography.setOnClickListener {
+            startActivity(Intent(this@MainActivity,CryptographyActivity::class.java))
         }
     }
 }

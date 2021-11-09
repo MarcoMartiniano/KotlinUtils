@@ -2,77 +2,78 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".MainActivity">
+    tools:context=".cryptography.CryptographyActivity">
 
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_cryptography_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Kotlin Utilities"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/bt_countdowntime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Countdowntime"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
-        />
-
-    <Button
-        android:id="@+id/bt_flowlivedata"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Flows and LiveData"
-        app:layout_constraintTop_toBottomOf="@id/bt_countdowntime"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
-        />
-
-    <Button
-        android:id="@+id/bt_biometricauth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Biometric Authentication"
-        app:layout_constraintTop_toBottomOf="@id/bt_flowlivedata"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
-        />
-
-    <Button
-        android:id="@+id/bt_whatzup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Whatzup"
-        app:layout_constraintTop_toBottomOf="@id/bt_biometricauth"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
-        />
-
-    <Button
-        android:id="@+id/bt_cryptography"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Cryptography"
-        app:layout_constraintTop_toBottomOf="@id/bt_whatzup"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
+        android:textSize="28sp"
+        android:textStyle="bold"
         />
 
+    <EditText
+        android:id="@+id/edt_crypto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_cryptography_title"
+        />
+
+    <TextView
+        android:id="@+id/tv_encryptography"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/edt_crypto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Encryptography"
+        android:textSize="20sp"
+        />
+
+    <Button
+        android:id="@+id/bt_encryptography"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Encryptography"
+        app:layout_constraintTop_toBottomOf="@id/tv_encryptography"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_decryptography"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/bt_encryptography"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Decryptography"
+        android:textSize="20sp"
+        />
+
+    <Button
+        android:id="@+id/bt_decryptography"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Decryptography"
+        app:layout_constraintTop_toBottomOf="@id/tv_decryptography"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
