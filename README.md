@@ -11,3 +11,11 @@ Project to implement Kotlin utilities divided by folder
  - [x] Whatzup 
     - [x] send message for a specific number    
  - [x] Cryptography
+ - [ ] CameraX
+   - [ ] Object Detection
+   - [ ] Face Detection
+   - [ ] Barcode Detection
+ - [ ] Custom Switch Button
+ - [ ] Custom Canvas Trail
+ - [ ] Custom Snack Bar
+ - [ ] Autocomplete SMS Code
