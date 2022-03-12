@@ -149,6 +149,15 @@ class BiometricAuthViewModel : ViewModel() {
                 startActivityForResult(activity,enrollIntent,0,null)
                 return false
             }
+            BiometricManager.BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED -> {
+                TODO()
+            }
+            BiometricManager.BIOMETRIC_ERROR_UNSUPPORTED -> {
+                TODO()
+            }
+            BiometricManager.BIOMETRIC_STATUS_UNKNOWN -> {
+                TODO()
+            }
         }
         return false
     }

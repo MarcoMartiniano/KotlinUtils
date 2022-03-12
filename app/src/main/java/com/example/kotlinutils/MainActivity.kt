@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.kotlinutils.biometricauthentication.BiometricAuthActivity
+import com.example.kotlinutils.camerax.CameraXActivity
 import com.example.kotlinutils.countdowntime.CountdowntimeActivity
 import com.example.kotlinutils.cryptography.CryptographyActivity
 import com.example.kotlinutils.databinding.ActivityMainBinding
@@ -38,6 +39,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btCryptography.setOnClickListener {
             startActivity(Intent(this@MainActivity,CryptographyActivity::class.java))
+        }
+        binding.btCameraX.setOnClickListener {
+            startActivity(Intent(this@MainActivity,CameraXActivity::class.java))
         }
     }
 }
