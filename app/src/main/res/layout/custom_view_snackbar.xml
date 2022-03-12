@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:layout_height="wrap_content"
+    tools:layout_width="match_parent"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_customsnackbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_snackbar"
+        android:backgroundTint="@color/background_light_level_1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_darkview"
+            android:layout_width="56dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_snackbar_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icon_snackbar"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="12dp"
+            android:tint="@color/error_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_attention"
+            tools:src="@drawable/ic_attention" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title_snackbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:textColor="@color/neutral_lightest"
+            app:layout_constraintBottom_toTopOf="@+id/description_snackbar"
+            app:layout_constraintEnd_toStartOf="@+id/icon_close_snackbar"
+            app:layout_constraintStart_toEndOf="@+id/cl_darkview"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Erro ao salvar as informações" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/description_snackbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:maxWidth="280dp"
+            android:textColor="@color/neutral_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/title_snackbar"
+            app:layout_constraintStart_toStartOf="@+id/title_snackbar"
+            app:layout_constraintTop_toBottomOf="@+id/title_snackbar"
+            tools:text="Falha ao salvar os dados, tente novamente em alguns instantes." />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/icon_close_snackbar"
+            android:layout_width="13dp"
+            android:layout_height="12dp"
+            android:layout_marginVertical="13dp"
+            android:layout_marginEnd="14dp"
+            android:backgroundTint="@android:color/transparent"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_close"
+            android:tint="@color/neutral_lightest"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_close"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</merge>

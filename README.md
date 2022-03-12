@@ -15,7 +15,9 @@ Project to implement Kotlin utilities divided by folder
    - [ ] Object Detection
    - [ ] Face Detection
    - [ ] Barcode Detection
- - [ ] Custom Switch Button
- - [ ] Custom Canvas Trail
- - [ ] Custom Snack Bar
+ - [ ] Custom Views Switch Button
+    - [ ] Switch Button
+    - [x] SnackBar
+    - [ ] Custom Canvas Trail
+    - [ ] Custom Button
  - [ ] Autocomplete SMS Code

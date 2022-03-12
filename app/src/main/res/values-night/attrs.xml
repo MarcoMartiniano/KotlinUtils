@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PxTextInput">
+        <attr name="label" format="string" />
+        <attr name="textInput" format="string" />
+        <attr name="hint" format="string" />
+        <attr name="description" format="string" />
+        <attr name="textInputContentDescription" format="string" />
+        <attr name="mask" format="string" />
+        <attr name="suffix" format="string" />
+        <attr name="android:imeOptions" />
+        <attr name="android:inputType" />
+        <attr name="android:maxLength" />
+        <attr name="android:minLines" />
+        <attr name="android:enabled" />
+        <attr name="android:background" />
+        <attr name="passwordToggleEnabled" format="boolean" />
+        <attr name="passwordToggleDrawable" format="reference" />
+        <attr name="passwordToggleTint" />
+        <attr name="goneLabel" format="boolean" />
+        <attr name="hasCharCountLabel" format="boolean" />
+        <attr name="styleLabel" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="PxSnackbar">
+        <attr name="snackBarTitle" format="string" />
+        <attr name="snackBarDescription" format="string" />
+        <attr name="snackBarIcon" format="reference" />
+        <attr name="snackBarHasCloseIcon" format="boolean" />
+        <attr name="snackBarIconColor" format="reference|color" />
+        <attr name="snackBarEndIcon" format="reference" />
+        <attr name="snackBarEndIconColor" format="reference|color" />
+    </declare-styleable>
+
+    <declare-styleable name="PxChoiceCard">
+        <attr name="cardviewTitle" format="string" />
+        <attr name="cardviewTitleStyle" format="reference" />
+        <attr name="cardviewIcon" format="reference" />
+        <attr name="cardviewIconColor" format="reference|color" />
+        <attr name="cardviewTitleConstraintTop" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="PxHighlightButton">
+        <attr name="highlightTitle" format="string" />
+        <attr name="highlightDescription" format="string" />
+        <attr name="highlightStartIcon" format="reference" />
+        <attr name="highlightEndIcon" format="reference" />
+        <attr name="highlightIconColor" format="reference|color" />
+    </declare-styleable>
+
+    <declare-styleable name="PxPinInputTheme">
+        <attr name="pxPinInputTextStyle" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="PxPinInput">
+        <attr name="itemCount" format="integer" />
+        <attr name="itemWidth" format="dimension" />
+        <attr name="itemHeight" format="dimension" />
+        <attr name="itemRadius" format="dimension" />
+        <attr name="itemSpacing" format="dimension" />
+        <attr name="lineWidth" format="dimension" />
+        <attr name="lineColor" format="reference|color" />
+        <attr name="viewTypeOld" format="enum">
+            <enum name="rectangle" value="0" />
+            <enum name="line" value="1" />
+            <enum name="none" value="2" />
+        </attr>
+        <attr name="android:cursorVisible" />
+        <attr name="cursorWidth" format="dimension" />
+        <attr name="cursorColor" format="reference|color" />
+        <attr name="android:itemBackground" />
+        <attr name="hideLineWhenFilled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="PxSwitchButton">
+        <attr name="thumbBgShadowColor" format="color" />
+        <attr name="thumbRadius" format="dimension" />
+        <attr name="thumbOnBgColor" format="color" />
+        <attr name="thumbOffBgColor" format="color" />
+        <attr name="trackWidth" format="dimension" />
+        <attr name="trackHeight" format="dimension" />
+        <attr name="trackOffTransitBgColor" format="color" />
+        <attr name="trackOnBgColor" format="color" />
+        <attr name="trackOffBgColor" format="color" />
+        <attr name="trackBgRadius" format="dimension" />
+        <attr name="isOpen" format="boolean" />
+        <attr name="isEnableThumbShadow" format="boolean" />
+        <attr name="thumbAnimatorDuration" format="integer" />
+        <attr name="thumbShadowDy" format="integer" />
+        <attr name="thumbShadowDx" format="integer" />
+        <attr name="thumbShadowRadius" format="integer" />
+    </declare-styleable>
+
+</resources>

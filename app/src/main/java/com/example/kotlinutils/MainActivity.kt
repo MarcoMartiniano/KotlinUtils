@@ -1,13 +1,13 @@
 package com.example.kotlinutils
 
 import android.content.Intent
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlinutils.biometricauthentication.BiometricAuthActivity
 import com.example.kotlinutils.camerax.CameraXActivity
 import com.example.kotlinutils.countdowntime.CountdowntimeActivity
 import com.example.kotlinutils.cryptography.CryptographyActivity
+import com.example.kotlinutils.customViews.CustomViewsActivity
 import com.example.kotlinutils.databinding.ActivityMainBinding
 import com.example.kotlinutils.flowandlivedata.FlowLiveDataActivity
 import com.example.kotlinutils.whatzup.WhatzupActivity
@@ -43,5 +43,9 @@ class MainActivity : AppCompatActivity() {
         binding.btCameraX.setOnClickListener {
             startActivity(Intent(this@MainActivity,CameraXActivity::class.java))
         }
+        binding.btCustomViews.setOnClickListener {
+            startActivity(Intent(this@MainActivity,CustomViewsActivity::class.java))
+        }
     }
+
 }

@@ -7,4 +7,40 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="primary_darkest">#04105E</color>
+    <color name="primary_dark">#072A8C</color>
+    <color name="primary_medium">#0046BF</color>
+    <color name="primary_light">#0075FF</color>
+    <color name="primary_lightest">#0DACFF</color>
+
+    <color name="secondary_darkest">#BF9A32</color>
+    <color name="secondary_dark">#EBBD3D</color>
+    <color name="secondary_default">#FFD400</color>
+    <color name="secondary_light">#FFE375</color>
+    <color name="secondary_lightest">#FFF0B5</color>
+
+    <color name="neutral_darkest">#1A1B1C</color>
+    <color name="neutral_dark">#545759</color>
+    <color name="neutral_medium">#C4C4C4</color>
+    <color name="neutral_light">#F2F2F2</color>
+    <color name="neutral_lightest">#FFFFFFFF</color>
+
+    <color name="success_dark">#419E4D</color>
+    <color name="success_default">#64F277</color>
+    <color name="success_light">#A9FFB4</color>
+
+    <color name="warning_dark">#CCB11F</color>
+    <color name="warning_default">#F2DB64</color>
+    <color name="warning_light">#FFF6A9</color>
+
+    <color name="error_dark">#BD4E4E</color>
+    <color name="error_default">#F26464</color>
+    <color name="error_light">#FFA9A9</color>
+
+    <color name="background_light_level_1">#0046BF</color>
+    <color name="background_light_level_2">#F2F2F2</color>
+    <color name="background_light_level_3">#FFFFFF</color>
+    <color name="background_light_level_4">#F4F4F4</color>
+    <color name="background_light_level_5">#F5F5F5</color>
 </resources>

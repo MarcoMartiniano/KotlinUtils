@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Kotlin Utilities"
-        android:textStyle="bold"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,67 +23,83 @@
         android:id="@+id/bt_countdowntime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Countdowntime"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="30dp"
-        />
+        android:text="Countdowntime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
     <Button
         android:id="@+id/bt_flowlivedata"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="Flows and LiveData"
-        app:layout_constraintTop_toBottomOf="@id/bt_countdowntime"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_countdowntime" />
 
     <Button
         android:id="@+id/bt_biometricauth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="Biometric Authentication"
-        app:layout_constraintTop_toBottomOf="@id/bt_flowlivedata"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_flowlivedata" />
 
     <Button
         android:id="@+id/bt_whatzup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="Whatzup"
-        app:layout_constraintTop_toBottomOf="@id/bt_biometricauth"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_biometricauth" />
 
     <Button
         android:id="@+id/bt_cryptography"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="Cryptography"
-        app:layout_constraintTop_toBottomOf="@id/bt_whatzup"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_whatzup" />
 
     <Button
         android:id="@+id/bt_cameraX"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="CameraX"
-        app:layout_constraintTop_toBottomOf="@id/bt_cryptography"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_cryptography" />
+
+    <Button
+        android:id="@+id/bt_customViews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Custom Views"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_cameraX" />
+
+    <FrameLayout
+        android:id="@+id/root_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".MainActivity">
+
+    </FrameLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
