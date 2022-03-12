@@ -16,7 +16,7 @@ Project to implement Kotlin utilities divided by folder
    - [ ] Face Detection
    - [ ] Barcode Detection
  - [ ] Custom Views Switch Button
-    - [ ] Switch Button
+    - [x] Switch Button
     - [x] SnackBar
     - [ ] Custom Canvas Trail
     - [ ] Custom Button

@@ -16,8 +16,9 @@ class CustomViewsActivity : AppCompatActivity() {
         binding.btSnackBar.setOnClickListener {
             startActivity(Intent(this@CustomViewsActivity, SnackBarActivity::class.java))
         }
-        binding.btSwitchButton.setOnClickListener {  }
+        binding.btSwitchButton.setOnClickListener {
+            startActivity(Intent(this@CustomViewsActivity, SwitchButtonActivity::class.java))
+        }
     }
-
 
 }

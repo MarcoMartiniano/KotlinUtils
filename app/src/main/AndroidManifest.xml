@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinUtils">
         <activity
+            android:name=".customViews.SwitchButtonActivity"
+            android:exported="false" />
+        <activity
             android:name=".customViews.SnackBarActivity"
             android:exported="false" />
         <activity
